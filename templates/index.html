@@ -1,69 +1,317 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Verbas | Software, Digital Marketing & AI Automation for Growing Businesses</title>
-<meta name="description" content="Verbas builds websites, apps and custom software, runs digital marketing, and automates business work with AI, including AI calling for Tally users. One team, India-based.">
-<meta name="theme-color" content="#0a1530"><link rel="canonical" href="https://verbas.in/">
-<meta property="og:type" content="website"><meta property="og:title" content="Verbas | Software, Marketing & AI Automation"><meta property="og:description" content="Build it. Grow it. Automate it. One team for software, digital marketing and AI."><meta property="og:url" content="https://verbas.in/"><meta property="og:image" content="{{ url_for('static', filename='img/verbas-logo.png', _external=True) }}">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Verbas Pvt Ltd helps businesses with website and app development, custom software, digital marketing, SEO and AI business automation in Tanuku and across India.">\n<link rel="canonical" href="https://verbas.in/">
+<meta name="theme-color" content="#0b2348">
+<meta name="robots" content="index, follow">
 <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Verbas Private Limited","url":"https://verbas.in","telephone":"+919951144669","email":"verbas.pvt.ltd@gmail.com","areaServed":"IN","description":"Software development, digital marketing and AI business automation."}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head><body>
-<header class="nav" id="navbar"><div class="w bar">
-<a class="brand" href="#home"><img src="{{ url_for('static', filename='img/verbas-logo.png') }}" alt="" width="38" height="38"><b>Verbas</b></a>
-<nav id="navLinks"><a href="/services">Services</a><a href="#process">How we work</a><a href="/about">About</a><a href="/tanuku">Tanuku</a><a href="#contact">Contact</a><a class="btn sm" href="#contact">Start a project</a></nav>
-<button class="mb" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button></div></header>
+<title>Verbas | Software, Digital Marketing & AI Business Automations</title>
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a class="brand" href="#home">
+      <div class="brand-symbol" aria-hidden="true"><img src="{{ url_for('static', filename='img/verbas-logo.png') }}" alt="Verbas logo"></div>
+      <div><div class="brand-name">VERBAS</div><span class="brand-sub">SOFTWARE & DIGITAL MARKETING</span></div>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="active">Home</a>
+      <a href="#services">What we do</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">About</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Start a Project →</a>
+    </nav>
+    <button class="menu" id="menuBtn" aria-label="Open navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
 <main>
-<section class="hero" id="home"><div class="w hg">
-<div class="ht"><h1>Software, marketing and AI that work as one team.</h1>
-<p>Verbas builds your website or app, brings customers to it, and automates the repetitive work behind it. One company, one conversation, from first idea to ongoing growth.</p>
-<div class="acts"><a class="btn" href="#contact">Start a project</a><a class="btn ghost" href="#services">See what we do</a></div></div>
-<div class="phone" aria-label="Sample AI calling workflow"><div class="ph-top"><span class="live"></span>AI Tally Caller <em>sample call</em></div>
-<div class="chat" id="chat"></div>
-<div class="ph-foot" id="tally"><span>Tally</span><b>Receipt recorded. Follow-up cleared.</b></div>
-<button class="replay" id="replay" type="button">Replay</button></div></div></section>
-<section class="strip"><div class="w"><span>Websites and apps</span><span>Ads, SEO and content</span><span>AI calling and workflows</span><span>Built by one team</span></div></section>
 
-<section class="s" id="services"><div class="w"><h2>Three ways we help you grow.</h2>
-<div class="band"><div><h3>Build</h3><p>Fast websites, mobile apps, online stores and custom business software, designed around how your team and customers actually work.</p></div>
-<ul class="pills"><li><a href="#contact" data-need="Web Development">Web development</a></li><li><a href="#contact" data-need="App Development">App development</a></li><li><a href="#contact" data-need="Software Development">Custom software</a></li><li><a href="#contact" data-need="e-Commerce Development">e-Commerce</a></li><li><a href="#contact" data-need="Application Services">Dashboards and integrations</a></li></ul></div>
-<div class="band"><div><h3>Grow</h3><p>Reach the right people on the channels that matter, and measure what each rupee of ad spend brings back.</p></div>
-<ul class="pills"><li><a href="#contact" data-need="Social Media Handling">Social media</a></li><li><a href="#contact" data-need="Meta Ads">Meta Ads</a></li><li><a href="#contact" data-need="Google Ads">Google Ads</a></li><li><a href="#contact" data-need="SEO">SEO</a></li><li><a href="#contact" data-need="E-mail Marketing">Email marketing</a></li><li><a href="#contact" data-need="Content Marketing">Content marketing</a></li></ul></div>
-<div class="band dark"><div><h3>Automate</h3><p>Hand routine calls, follow-ups and data entry to AI, and keep your people for the work only they can do. Our AI Tally Caller handles payment reminders and follow-ups for businesses that run on Tally.</p></div>
-<ul class="pills"><li><a href="#contact" data-need="AI Tally Caller">AI Tally Caller</a></li><li><a href="#contact" data-need="AI Voice & Communication">AI voice and chat</a></li><li><a href="#contact" data-need="Workflow Automation">Workflow automation</a></li><li><a href="#contact" data-need="Custom AI Integrations">Custom AI integrations</a></li></ul></div>
-</div></section>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="eyebrow">Software Development <i>·</i> Digital Marketing <i>·</i> AI Business Automations</div>
+      <h1>Technology<br>built around<br>your business<span class="dot">.</span></h1>
+      <p class="hero-copy">Verbas is a software development and digital growth company building websites, applications and custom software that help businesses grow and move forward. From idea to launch and beyond.</p>
+      <div class="actions">
+        <a href="#services" class="btn btn-primary">Explore Our Services →</a>
+        <a href="#contact" class="btn btn-outline">Talk to Us</a>
+      </div>
+    </div>
 
-<section class="s alt" id="process"><div class="w"><h2>How a project runs.</h2>
-<ol class="steps"><li><h3>Understand</h3><p>We learn your business, customers and the outcome you need before proposing anything.</p></li><li><h3>Design</h3><p>User experience, technology and business goals are planned together, so there are no surprises later.</p></li><li><h3>Build and launch</h3><p>We build in clear stages you can review, then launch and hand over with documentation.</p></li><li><h3>Improve</h3><p>Launch is the start. We measure results and keep refining the product and the marketing.</p></li></ol></div></section>
+    <div class="register-wrap">
+      <div class="register">
+        <div class="register-head"><span class="register-title">01 — Software</span><span>05 Services</span></div>
+        <ul class="service-list">
+          <li class="service-row"><span class="service-no">01</span><span class="service-name">Web Development</span><span class="service-arrow">→</span></li>
+          <li class="service-row"><span class="service-no">02</span><span class="service-name">App Development</span><span class="service-arrow">→</span></li>
+          <li class="service-row"><span class="service-no">03</span><span class="service-name">Software Development</span><span class="service-arrow">→</span></li>
+          <li class="service-row"><span class="service-no">04</span><span class="service-name">e-Commerce Development</span><span class="service-arrow">→</span></li>
+          <li class="service-row"><span class="service-no">05</span><span class="service-name">Application Services</span><span class="service-arrow">→</span></li>
+        </ul>
+        <div class="register-foot"><span>Software</span><span>Build digital products</span></div>
+      </div>
 
-<section class="s" id="about"><div class="w ab"><div><h2>Why businesses work with Verbas.</h2></div>
-<div class="pts"><div><h3>One team, not three vendors</h3><p>Your developer, marketer and automation expert already talk to each other, so nothing gets lost between them.</p></div>
-<div><h3>Business first</h3><p>We ask what problem you are solving before choosing what to build.</p></div>
-<div><h3>Built to last</h3><p>Clean, maintainable systems that your team can extend as the business grows.</p></div>
-<div><h3>Plain communication</h3><p>Clear scope, honest timelines and regular updates, with no jargon.</p></div></div></div></section>
+      <div class="register">
+        <div class="register-head"><span class="register-title">02 — Digital Marketing</span><span>06 Services</span></div>
+        <ul class="service-list">
+          <li class="service-row"><span class="service-no">01</span><span class="service-name">Social Media Handling</span><span class="service-arrow">→</span></li>
+          <li class="service-row"><span class="service-no">02</span><span class="service-name">Meta Ads</span><span class="service-arrow">→</span></li>
+          <li class="service-row"><span class="service-no">03</span><span class="service-name">Google Ads</span><span class="service-arrow">→</span></li>
+          <li class="service-row"><span class="service-no">04</span><span class="service-name">SEO</span><span class="service-arrow">→</span></li>
+          <li class="service-row"><span class="service-no">05</span><span class="service-name">E-mail Marketing</span><span class="service-arrow">→</span></li>
+          <li class="service-row"><span class="service-no">06</span><span class="service-name">Content Marketing</span><span class="service-arrow">→</span></li>
+        </ul>
+        <div class="register-foot"><span>Digital Marketing</span><span>Grow your business</span></div>
+      </div>
 
-<section class="s ct" id="contact"><div class="w cg"><div class="cc"><h2>Tell us what you want to build.</h2>
-<p>An idea or a problem is enough. We will review it and reply with sensible next steps.</p>
-<ul class="cl"><li><small>Phone</small><a href="tel:+919951144669">+91 99511 44669</a></li><li><small>Email</small><a href="mailto:verbas.pvt.ltd@gmail.com">verbas.pvt.ltd@gmail.com</a></li><li><small>Website</small><a href="https://verbas.in" rel="noopener">verbas.in</a></li></ul></div>
-<div class="form"><div class="success" id="success" role="status" aria-live="polite"></div>
-<form id="enquiryForm" novalidate><div class="fg">
-<div class="f"><label for="name">Your name *</label><input id="name" name="name" required autocomplete="name"></div>
-<div class="f"><label for="email">Email *</label><input id="email" name="email" type="email" required autocomplete="email"></div>
-<div class="f"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91"></div>
-<div class="f"><label for="company">Company</label><input id="company" name="company" autocomplete="organization"></div>
-<div class="f"><label for="need">What do you need? *</label><select id="need" name="need" required><option value="">Choose a service</option>
-<optgroup label="Build"><option>Web Development</option><option>App Development</option><option>Software Development</option><option>e-Commerce Development</option><option>Application Services</option></optgroup>
-<optgroup label="Grow"><option>Social Media Handling</option><option>Meta Ads</option><option>Google Ads</option><option>SEO</option><option>E-mail Marketing</option><option>Content Marketing</option></optgroup>
-<optgroup label="Automate"><option>AI Tally Caller</option><option>AI Voice & Communication</option><option>Workflow Automation</option><option>Custom AI Integrations</option></optgroup>
-<option>Not sure — need guidance</option></select></div>
-<div class="f"><label for="timeline">Timeline</label><select id="timeline" name="timeline"><option value="">Choose</option><option>As soon as possible</option><option>Within 1 month</option><option>1 – 3 months</option><option>3 – 6 months</option><option>Flexible</option></select></div>
-<div class="f full"><label for="message">About your project * <small>(at least 20 characters)</small></label><textarea id="message" name="message" required minlength="20" rows="4"></textarea></div>
-<div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div></div>
-<div class="fa"><button class="btn" id="emailSubmitBtn" type="submit">Send enquiry</button><button class="btn wa" id="whatsappSubmitBtn" type="button">Send on WhatsApp</button></div></form></div></div></section>
+      <div class="register">
+        <div class="register-head"><span class="register-title">03 — AI Business Automations</span><span>04 Services</span></div>
+        <ul class="service-list">
+          <li class="service-row"><span class="service-no">01</span><span class="service-name">AI Tally Caller</span><span class="service-arrow">→</span></li>
+          <li class="service-row"><span class="service-no">02</span><span class="service-name">AI Voice & Communication</span><span class="service-arrow">→</span></li>
+          <li class="service-row"><span class="service-no">03</span><span class="service-name">Workflow Automation</span><span class="service-arrow">→</span></li>
+          <li class="service-row"><span class="service-no">04</span><span class="service-name">Custom AI Integrations</span><span class="service-arrow">→</span></li>
+        </ul>
+        <div class="register-foot"><span>AI Business Automations</span><span>Automate & scale</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="container stats-grid">
+    <div class="stat"><strong>05</strong><span>Software services</span></div>
+    <div class="stat"><strong>06</strong><span>Digital marketing services</span></div>
+    <div class="stat"><strong>04</strong><span>AI automation services</span></div>
+    <div class="stat"><strong>∞</strong><span>Possibilities to build</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">01 · Software & Technology</div>
+        <h2 class="title">Digital products<br>built around business.</h2>
+      </div>
+      <p class="desc">From a high-quality company website to a complete digital platform, we build technology around real requirements, users and long-term business goals.</p>
+    </div>
+    <div class="service-grid">
+      <article class="service-card"><span class="card-number">01</span><div class="card-icon"><i class="fa-solid fa-code"></i></div><h3>Web Development</h3><p>Fast, responsive and professional websites built for modern businesses and designed around performance, usability and business goals.</p><ul class="tags"><li>Business Websites</li><li>Responsive</li><li>Performance</li></ul></article>
+      <article class="service-card"><span class="card-number">02</span><div class="card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div><h3>App Development</h3><p>Mobile experiences focused on clear user journeys, reliable application behavior and maintainable product architecture.</p><ul class="tags"><li>Android</li><li>iOS</li><li>Cross-platform</li></ul></article>
+      <article class="service-card"><span class="card-number">03</span><div class="card-icon"><i class="fa-solid fa-gears"></i></div><h3>Software Development</h3><p>Purpose-built software designed around your processes, customers, workflows and long-term growth.</p><ul class="tags"><li>Business Systems</li><li>Automation</li><li>Custom Logic</li></ul></article>
+      <article class="service-card"><span class="card-number">04</span><div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div><h3>e-Commerce Development</h3><p>Modern online stores designed to present products clearly and create a smooth digital buying experience.</p><ul class="tags"><li>Online Stores</li><li>Product UI</li><li>Checkout</li></ul></article>
+      <article class="service-card"><span class="card-number">05</span><div class="card-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Application Services</h3><p>Business applications, dashboards, integrations and digital tools that simplify day-to-day operations.</p><ul class="tags"><li>Dashboards</li><li>APIs</li><li>Integrations</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL MARKETING -->
+<section class="split-section" id="growth">
+  <div class="container split-layout">
+    <div class="split-intro">
+      <div class="section-tag">02 · Digital Marketing</div>
+      <h2 class="title">Build your presence.<br>Reach the right audience.</h2>
+      <p class="desc">Digital marketing helps businesses strengthen visibility, build their brand and reach potential customers through measurable digital channels.</p>
+      <a href="#contact" class="btn btn-primary">Start a Marketing Project →</a>
+    </div>
+    <div class="card-grid">
+      <article class="info-card"><small>01 / Social</small><h3>Social Media Handling</h3><p>Content, campaigns and social presence designed to strengthen your brand and connect with customers.</p></article>
+      <article class="info-card"><small>02 / Meta</small><h3>Meta Ads</h3><p>Audience-focused advertising across Facebook and Instagram built around reach, engagement and acquisition.</p></article>
+      <article class="info-card"><small>03 / Google</small><h3>Google Ads</h3><p>Reach people actively searching for relevant products and services through focused advertising campaigns.</p></article>
+      <article class="info-card"><small>04 / Search</small><h3>SEO</h3><p>Technical and content-focused search optimization designed to improve sustainable online visibility.</p></article>
+      <article class="info-card"><small>05 / Email</small><h3>E-mail Marketing</h3><p>Relevant email communication that supports lead nurturing, customer engagement and repeat business.</p></article>
+      <article class="info-card"><small>06 / Content</small><h3>Content Marketing</h3><p>Useful, consistent content that communicates value, builds authority and supports long-term growth.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- AI BUSINESS AUTOMATIONS -->
+<section class="split-section alt" id="ai-automations">
+  <div class="container split-layout">
+    <div class="split-intro">
+      <div class="section-tag">03 · AI Business Automations</div>
+      <h2 class="title">Smarter workflows.<br>Less repetitive work.</h2>
+      <p class="desc">AI business automations connect conversations, business systems and everyday workflows so teams can reduce repetitive tasks, respond faster and keep important work moving.</p>
+      <a href="#contact" class="btn btn-primary">Discuss an AI Automation →</a>
+    </div>
+    <div class="card-grid">
+      <article class="info-card"><small>01 / Voice</small><h3>AI Tally Caller</h3><p>AI-assisted calling workflows designed to support customer communication, follow-ups and business operations.</p></article>
+      <article class="info-card"><small>02 / Communication</small><h3>AI Voice & Communication</h3><p>Conversational AI experiences that help businesses handle routine communication consistently.</p></article>
+      <article class="info-card"><small>03 / Workflow</small><h3>Workflow Automation</h3><p>Automate repetitive business steps, handoffs and routine actions around the way your team already works.</p></article>
+      <article class="info-card"><small>04 / Integration</small><h3>Custom AI Integrations</h3><p>Connect AI capabilities with existing software, APIs and business systems to create practical automation.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="container split-layout">
+    <div class="split-intro">
+      <div class="section-tag">04 · Our Approach</div>
+      <h2 class="title">Different services.<br>One standard of execution.</h2>
+      <p class="desc">Good digital products require more than writing code. We keep business goals, users and technology aligned throughout the project.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="step-no">01</span><div><h3>Understand first</h3><p>We begin by understanding the business, customer, problem and expected outcome.</p></div></div>
+      <div class="step"><span class="step-no">02</span><div><h3>Design with purpose</h3><p>User experience, technology and business goals are considered together.</p></div></div>
+      <div class="step"><span class="step-no">03</span><div><h3>Build for change</h3><p>Solutions are structured so they can be maintained, improved and extended.</p></div></div>
+      <div class="step"><span class="step-no">04</span><div><h3>Improve continuously</h3><p>Launch is not the end. Products and growth strategies evolve through learning and iteration.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-dark">
+      <div>
+        <div class="section-tag">05 · About Verbas</div>
+        <div class="big">Building technology.<br>Enabling digital growth.</div>
+      </div>
+      <p>Verbas brings software engineering, product thinking, design and digital growth together so businesses can build stronger technology foundations and strengthen how they reach the market.</p>
+    </div>
+    <div>
+      <div class="section-tag">Why Verbas</div>
+      <h2 class="title">Technology should solve the right problems.</h2>
+      <div class="about-points">
+        <div class="about-point"><strong>Business-first thinking</strong><span>Understand the business problem, users and goals before deciding what to build.</span></div>
+        <div class="about-point"><strong>Scalable engineering</strong><span>Build maintainable systems that can evolve as businesses grow.</span></div>
+        <div class="about-point"><strong>User-focused design</strong><span>Create clear experiences around what customers actually need.</span></div>
+        <div class="about-point"><strong>Technology + growth</strong><span>Connect software development with digital marketing and visibility.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">06 · Blog</div>
+        <h2 class="title">Ideas on building,<br>marketing and automating.</h2>
+      </div>
+      <p class="desc">Practical notes from our work on software, digital growth and AI automation for growing businesses.</p>
+    </div>
+    <div class="blog-grid">
+      <article class="post featured">
+        <div class="post-meta"><span class="post-cat">AI Automation</span><span>8 Oct 2026 · 6 min read</span></div>
+        <h3><a href="#blog">Where AI calling fits in a small business workflow</a></h3>
+        <p>Follow-ups, reminders and payment nudges are repetitive by nature. Here is how to decide which calls an AI caller should handle and which still need a person.</p>
+        <a class="read-more" href="#blog">Read article →</a>
+      </article>
+      <article class="post">
+        <div class="post-meta"><span class="post-cat">Software</span><span>1 Oct 2026 · 5 min read</span></div>
+        <h3><a href="#blog">Custom software or off-the-shelf? A simple way to choose</a></h3>
+        <p>Five questions that show whether your process needs purpose-built software.</p>
+        <a class="read-more" href="#blog">Read article →</a>
+      </article>
+      <article class="post">
+        <div class="post-meta"><span class="post-cat">Digital Marketing</span><span>24 Sep 2026 · 4 min read</span></div>
+        <h3><a href="#blog">Meta Ads vs Google Ads: where to spend your first budget</a></h3>
+        <p>Intent versus discovery, and what each channel is best at for local businesses.</p>
+        <a class="read-more" href="#blog">Read article →</a>
+      </article>
+    </div>
+    <div class="blog-more"><a href="#blog" class="btn btn-outline">View all articles →</a></div>
+  </div>
+</section>
+
+<!-- ENQUIRY -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-copy">
+      <div class="section-tag">07 · Start a Project</div>
+      <h2 class="title">Tell us what you're trying to build.</h2>
+      <p class="desc">Share the idea, problem or digital opportunity. You don't need a complete technical specification. We'll start by understanding what the business actually needs.</p>
+      <div class="contact-note"><strong>What happens next?</strong><br>We review the requirement → discuss the project → understand the scope → define the appropriate next step.</div>
+      <ul class="contact-list">
+        <li><i class="fa-solid fa-phone"></i><div><small>Phone</small><a href="tel:+919951144669">+91 99511 44669</a></div></li>
+        <li><i class="fa-solid fa-envelope"></i><div><small>Email</small><a href="mailto:verbas.pvt.ltd@gmail.com">verbas.pvt.ltd@gmail.com</a></div></li>
+        <li><i class="fa-solid fa-globe"></i><div><small>Website</small><a href="https://verbas.in" target="_blank" rel="noopener">verbas.in</a></div></li>
+      </ul>
+    </div>
+
+    <div class="form">
+      <div class="form-title">Project Enquiry</div>
+      <div class="form-sub">Start with the problem. We can help identify the right direction.</div>
+      <div class="success" id="success" role="status" aria-live="polite"></div>
+      <form id="enquiryForm">
+        <div class="form-grid">
+          <div class="field"><label for="name">Your name *</label><input id="name" name="name" required placeholder="Your full name"></div>
+          <div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" required placeholder="you@company.com"></div>
+          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" placeholder="+91"></div>
+          <div class="field"><label for="company">Company</label><input id="company" name="company" placeholder="Company or organization"></div>
+          <div class="field">
+            <label for="need">What do you need? *</label>
+            <select id="need" name="need" required>
+              <option value="">Select a service</option>
+              <optgroup label="Software">
+                <option>Web Development</option><option>App Development</option><option>Software Development</option><option>e-Commerce Development</option><option>Application Services</option>
+              </optgroup>
+              <optgroup label="Digital Marketing">
+                <option>Social Media Handling</option><option>Meta Ads</option><option>Google Ads</option><option>SEO</option><option>E-mail Marketing</option><option>Content Marketing</option>
+              </optgroup>
+              <optgroup label="AI Business Automations">
+                <option>AI Tally Caller</option><option>AI Voice & Communication</option><option>Workflow Automation</option><option>Custom AI Integrations</option>
+              </optgroup>
+              <option>Not sure — need guidance</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="timeline">Preferred timeline</label>
+            <select id="timeline" name="timeline">
+              <option value="">Select timeline</option><option>As soon as possible</option><option>Within 1 month</option><option>1 – 3 months</option><option>3 – 6 months</option><option>Flexible</option>
+            </select>
+          </div>
+          <div class="field full"><label for="message">Tell us about your project *</label><textarea id="message" name="message" required minlength="20" placeholder="Tell us what you want to build, improve or grow..."></textarea></div>
+        </div>
+        <div class="form-bottom">
+          <small>Choose how you want to send your enquiry. Email is delivered through Verbas' secure server connection; WhatsApp opens a ready-to-send message.</small>
+          <div class="form-actions">
+            <button class="btn btn-primary" id="emailSubmitBtn" type="submit"><i class="fa-solid fa-envelope"></i> Send via Email</button>
+            <button class="btn btn-whatsapp" id="whatsappSubmitBtn" type="button"><i class="fa-brands fa-whatsapp"></i> Send via WhatsApp</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
 </main>
-<footer><div class="w fb"><b>Verbas</b><span>© 2026 Verbas Private Limited</span><a href="/about">About</a><a href="/services">Services</a><a href="/careers">Careers</a><a href="/privacy">Privacy policy</a><a href="tel:+919951144669">+91 99511 44669</a><a href="mailto:verbas.pvt.ltd@gmail.com">verbas.pvt.ltd@gmail.com</a></div></footer>
-<a class="fab" href="https://wa.me/919951144669?text=Hello%20Verbas%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">WhatsApp</a>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-logo">VERBAS</div><p>Software development and digital growth solutions built around the way modern businesses work.</p></div>
+      <div><h4>Software</h4><a href="#services">Web Development</a><a href="#services">App Development</a><a href="#services">Software Development</a><a href="#services">e-Commerce Development</a><a href="#services">Application Services</a></div>
+      <div><h4>Digital Marketing</h4><a href="#growth">Social Media Handling</a><a href="#growth">Meta Ads</a><a href="#growth">Google Ads</a><a href="#growth">SEO</a><a href="#growth">E-mail Marketing</a><a href="#growth">Content Marketing</a></div>
+      <div><h4>AI Automations</h4><a href="#ai-automations">AI Tally Caller</a><a href="#ai-automations">AI Voice & Communication</a><a href="#ai-automations">Workflow Automation</a><a href="#ai-automations">Custom AI Integrations</a></div>
+      <div><h4>Company</h4><a href="#about">About Verbas</a><a href="#blog">Blog</a><a href="#contact">Start a Project</a><a href="https://verbas.in" target="_blank" rel="noopener">verbas.in ↗</a><a href="tel:+919951144669">+91 99511 44669</a><a href="mailto:verbas.pvt.ltd@gmail.com">Email Us</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Verbas Private Limited. All rights reserved.</span><span>Build. Launch. Grow.</span></div>
+  </div>
+</footer>
+
+<a href="#home" class="to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+
 <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
-</body></html>
+<div class="container" style="padding:18px 0;text-align:center;font-size:.9rem">
+<a href="{{ url_for('about') }}">About Verbas</a> · <a href="{{ url_for('services') }}">Services</a> · <a href="{{ url_for('tanuku') }}">Software Development in Tanuku</a> · <a href="{{ url_for('careers') }}">Careers</a> · <a href="{{ url_for('privacy') }}">Privacy Policy</a> · <a href="{{ url_for('blog') }}">Blog</a>
+</div></body>
+</html>

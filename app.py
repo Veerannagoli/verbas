@@ -10,15 +10,13 @@ Run locally:  python app.py   (then open http://localhost:5000)
 """
 import os
 import re
-import time
-from collections import defaultdict, deque
 from html import escape
 
 import pymysql
 import pymysql.cursors
 import resend
 from dotenv import load_dotenv
-from flask import Flask, Response, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, make_response
 
 load_dotenv()
 app = Flask(__name__)
@@ -89,28 +87,6 @@ def ensure_tables():
         app.logger.warning("Database not ready: %s", exc)
 
 
-HITS = defaultdict(deque)
-
-
-def rate_limited(limit=5, window=3600):
-    """Allow at most `limit` enquiries per IP per hour (in-memory, per worker)."""
-    now, q = time.time(), HITS[client_ip()]
-    while q and now - q[0] > window:
-        q.popleft()
-    if len(q) >= limit:
-        return True
-    q.append(now)
-    return False
-
-
-@app.after_request
-def security_headers(resp):
-    resp.headers.setdefault("X-Content-Type-Options", "nosniff")
-    resp.headers.setdefault("X-Frame-Options", "SAMEORIGIN")
-    resp.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
-    return resp
-
-
 def client_ip():
     forwarded = request.headers.get("X-Forwarded-For", "")
     return (forwarded.split(",")[0].strip() or request.remote_addr or "")[:64]
@@ -151,108 +127,67 @@ def send_email(p):
         return False
 
 
+SITE_URL = "https://verbas.in"
+SEO_PAGES = {
+ "about": {"title":"About Verbas Pvt Ltd | Verbas","description":"Learn about Verbas Pvt Ltd, a software development and digital growth company.","heading":"About Verbas Pvt Ltd","intro":"Verbas brings software engineering, product thinking, design and digital growth together to help businesses build useful digital experiences.","sections":[("Our focus","We work across web development, application development, custom business software, e-commerce, digital marketing and AI-enabled business automation."),("How we work","We start by understanding the problem, users and desired outcome, then build maintainable solutions that can evolve as requirements change."),("Technology and growth","Verbas brings software development and digital growth services together to help businesses strengthen their digital presence.")]},
+ "services": {"title":"Software Development, Digital Marketing & AI Automation | Verbas","description":"Explore Verbas web development, app development, custom software, digital marketing, SEO and AI business automation services.","heading":"Services by Verbas","intro":"Digital services designed around business needs—from building online experiences to improving visibility and automating repeatable workflows.","sections":[("Software development","Web development, mobile apps, custom software, e-commerce websites, dashboards, integrations and business applications."),("Digital marketing","Social media handling, Meta Ads, Google Ads, SEO, email marketing and content marketing."),("AI business automation","AI-assisted voice workflows, communication automation, workflow automation and integrations with existing business systems.")]},
+ "tanuku": {"title":"Software Development Company in Tanuku | Verbas","description":"Verbas helps businesses in Tanuku with websites, applications, custom software, digital marketing, SEO and AI business automation.","heading":"Software Development Company in Tanuku","intro":"Verbas supports businesses in Tanuku and nearby areas with digital solutions that improve online presence, customer experiences and business workflows.","sections":[("Website and app development","Build responsive business websites, web applications and mobile-friendly digital experiences."),("Custom business software","Plan business applications, dashboards, workflow tools and integrations around the way your team works."),("Digital marketing and SEO","Improve online visibility with search-friendly website content, SEO, social media and advertising campaigns."),("AI workflow automation","Explore practical automation for repetitive tasks, communication workflows and connections between software tools.")]},
+ "careers": {"title":"Careers | Verbas","description":"Enquire about future career and collaboration opportunities with Verbas.","heading":"Careers at Verbas","intro":"We welcome enquiries from people interested in software, digital experiences, marketing and business automation.","sections":[("Areas of interest","Software development, web design, application development, digital marketing, content and AI-enabled workflows."),("Contact us","Email your profile, skills and the type of opportunity you are looking for to verbas.pvt.ltd@gmail.com.")]},
+ "privacy": {"title":"Privacy Policy | Verbas","description":"Read the Verbas website privacy policy for information submitted through project enquiry forms.","heading":"Privacy Policy","intro":"This policy explains in general terms how information submitted through the Verbas website may be handled.","sections":[("Information you provide","Project enquiries may include your name, email address, phone number, company, service interest and message."),("How information is used","Information is used to respond to enquiries, communicate about requested services and maintain website operation and security."),("Contact and updates","For privacy-related questions, contact verbas.pvt.ltd@gmail.com. This policy may be updated as website features change.")]},
+ "blog": {"title":"Blog | Verbas — Software, Marketing & AI Automation","description":"Insights from Verbas on software development, digital marketing, SEO and AI business automation.","heading":"Ideas on software, growth and automation","intro":"Practical topics to help businesses make informed decisions about digital products, marketing and automation.","sections":[("Custom software or off-the-shelf?","Compare business processes, team needs, budget and long-term plans before deciding whether to build custom software."),("SEO foundations for local businesses","Useful pages, clear service information, crawlable links and consistent business details help search engines understand a website."),("Where AI automation fits","Start with repetitive, measurable workflows and evaluate reliability before scaling automation.")]}
+}
+
 @app.route("/")
 def home():
     return render_template("index.html")
 
-
-# Dedicated, crawlable pages for the URLs already appearing in Google Search.
-SEO_PAGES = {
-    "about": {
-        "title": "About Verbas Pvt Ltd | Software & Digital Growth Company",
-        "description": "Learn about Verbas Private Limited, a software development and digital growth company helping businesses with websites, applications, digital marketing and AI automation.",
-        "heading": "About Verbas Private Limited",
-        "intro": "Verbas brings software development, digital marketing and practical AI automation together to help businesses build better digital experiences and grow with confidence.",
-        "sections": [
-            {"title": "One team for digital growth", "body": "From a business website or application to customer acquisition and workflow automation, we help connect the pieces into a practical digital plan."},
-            {"title": "Business-first problem solving", "body": "We start by understanding your goals, users and everyday challenges, then recommend a solution with clear scope and realistic next steps."},
-            {"title": "Built to evolve", "body": "Our focus is on useful, maintainable digital products and ongoing improvement as your business and customer needs change."},
-        ],
-        "cta": "Tell us what your business wants to improve and we will discuss the next steps.",
-    },
-    "services": {
-        "title": "Software Development, Digital Marketing & AI Services | Verbas",
-        "description": "Explore Verbas services: website and app development, custom software, e-commerce, SEO, paid advertising, social media, AI calling and workflow automation.",
-        "heading": "Software, marketing and AI services",
-        "intro": "Choose the support you need today and build from there. Verbas helps businesses create digital products, reach customers and automate repetitive work.",
-        "sections": [
-            {"title": "Software and product development", "body": "Website development, mobile app development, custom software, e-commerce experiences, dashboards and application integrations designed around your workflow."},
-            {"title": "Digital marketing and customer growth", "body": "Search engine optimisation (SEO), social media management, Meta and Google advertising, email campaigns and content marketing to help you reach relevant audiences."},
-            {"title": "AI and business automation", "body": "AI voice and communication, AI Tally Caller workflows, follow-up automation and custom AI integrations that can reduce repetitive manual tasks."},
-        ],
-        "cta": "Share your goals, preferred timeline and the service you are considering.",
-    },
-    "tanuku": {
-        "title": "Software Development Company in Tanuku | Verbas",
-        "description": "Verbas helps businesses in Tanuku and across India with website development, mobile apps, custom software, digital marketing and AI business automation.",
-        "heading": "Software development company serving Tanuku",
-        "intro": "Verbas supports businesses in Tanuku and the wider region with digital solutions built around real business needs—from an online presence to custom software and automation.",
-        "sections": [
-            {"title": "Websites and business applications", "body": "Create a professional website, customer-facing application, e-commerce store or internal tool that makes your services easier to discover and use."},
-            {"title": "Digital marketing for visibility", "body": "Improve discoverability and customer engagement with SEO, social media, paid advertising and useful content aligned with your business goals."},
-            {"title": "AI automation for everyday work", "body": "Explore workflow automation, AI voice solutions and custom integrations to streamline follow-ups and repetitive business processes."},
-        ],
-        "cta": "Tell us about your business in Tanuku and what you would like to build or improve.",
-    },
-    "careers": {
-        "title": "Careers and Opportunities | Verbas",
-        "description": "Connect with Verbas about future opportunities in software development, digital marketing and AI automation.",
-        "heading": "Build useful digital experiences with Verbas",
-        "intro": "We welcome conversations with people interested in software, digital growth and practical AI solutions. Contact us to share your skills and areas of interest.",
-        "sections": [
-            {"title": "Software and engineering", "body": "Areas of interest include web development, application engineering, integrations, testing and reliable delivery."},
-            {"title": "Marketing and content", "body": "Areas of interest include SEO, social media, advertising, analytics and content that helps businesses communicate clearly."},
-            {"title": "AI and automation", "body": "Areas of interest include workflow design, AI-enabled tools, business process improvement and responsible integrations."},
-        ],
-        "cta": "Email your profile and area of interest. This page does not represent a specific open vacancy.",
-    },
-    "privacy": {
-        "title": "Privacy Policy | Verbas",
-        "description": "Read how Verbas handles information submitted through its website enquiries and how to contact us about privacy questions.",
-        "heading": "Privacy policy",
-        "intro": "This page explains, in general terms, how Verbas may use information you submit through the website's project enquiry form.",
-        "sections": [
-            {"title": "Information you provide", "body": "If you contact us, we may receive details such as your name, email address, phone number, company, requested service and project message."},
-            {"title": "How information is used", "body": "Enquiry information is used to respond to your request, discuss a potential project, maintain relevant business records and protect the website from misuse."},
-            {"title": "Retention and questions", "body": "Information should be retained only for legitimate business, operational or legal needs. For a privacy-related question or request, contact verbas.pvt.ltd@gmail.com."},
-        ],
-        "cta": "For privacy questions, contact verbas.pvt.ltd@gmail.com.",
-    },
-}
-
+def seo_page(slug):
+    page = dict(SEO_PAGES[slug])
+    page["sections"] = [{"heading": h, "body": b} for h, b in page["sections"]]
+    return render_template("site_page.html", page=page, page_slug=slug)
 
 @app.route("/about")
-def about_page():
-    return render_template("seo_page.html", page=SEO_PAGES["about"], slug="about")
-
+def about():
+    return seo_page("about")
 
 @app.route("/services")
-def services_page():
-    return render_template("seo_page.html", page=SEO_PAGES["services"], slug="services")
-
+def services():
+    return seo_page("services")
 
 @app.route("/tanuku")
-def tanuku_page():
-    return render_template("seo_page.html", page=SEO_PAGES["tanuku"], slug="tanuku")
-
+def tanuku():
+    return seo_page("tanuku")
 
 @app.route("/careers")
-def careers_page():
-    return render_template("seo_page.html", page=SEO_PAGES["careers"], slug="careers")
-
+def careers():
+    return seo_page("careers")
 
 @app.route("/privacy")
-def privacy_page():
-    return render_template("seo_page.html", page=SEO_PAGES["privacy"], slug="privacy")
+def privacy():
+    return seo_page("privacy")
+
+@app.route("/blog")
+def blog():
+    return seo_page("blog")
+
+@app.route("/sitemap.xml")
+def sitemap():
+    paths = ["", "/about", "/services", "/tanuku", "/careers", "/privacy", "/blog"]
+    urls = "".join(f"<url><loc>{SITE_URL}{p}</loc></url>" for p in paths)
+    response = make_response('<?xml version="1.0" encoding="UTF-8"?>' + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + urls + '</urlset>')
+    response.headers["Content-Type"] = "application/xml; charset=utf-8"
+    return response
+
+@app.route("/robots.txt")
+def robots():
+    response = make_response("User-agent: *\nAllow: /\nSitemap: https://verbas.in/sitemap.xml\n")
+    response.headers["Content-Type"] = "text/plain; charset=utf-8"
+    return response
 
 
 @app.route("/api/contact", methods=["POST"])
 def contact():
     data = request.get_json(silent=True) or {}
-    if data.get("website"):  # honeypot: real visitors never fill this hidden field
-        return jsonify(ok=True, message="Thank you — your enquiry has been sent."), 201
-    if rate_limited():
-        return jsonify(ok=False, message="Too many enquiries from this connection. Please use WhatsApp or call +91 99511 44669."), 429
     p = {
         "name": clean(data, "name", 120), "email": clean(data, "email", 190),
         "phone": clean(data, "phone", 40), "company": clean(data, "company", 160),
@@ -299,31 +234,6 @@ def whatsapp_enquiry():
     except pymysql.MySQLError as exc:
         app.logger.warning("WhatsApp enquiry not stored: %s", exc)
     return jsonify(ok=True), 201
-
-
-@app.route("/robots.txt")
-def robots():
-    return Response(f"User-agent: *\nAllow: /\nSitemap: {request.url_root}sitemap.xml\n", mimetype="text/plain")
-
-
-@app.route("/sitemap.xml")
-def sitemap():
-    # Include only real, public HTML pages. API endpoints are intentionally excluded.
-    urls = ["/", "/about", "/services", "/tanuku", "/careers", "/privacy"]
-    items = "".join(
-        f"<url><loc>{request.url_root.rstrip('/')}{path}</loc></url>"
-        for path in urls
-    )
-    xml = ('<?xml version="1.0" encoding="UTF-8"?>'
-           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-           f"{items}</urlset>")
-    return Response(xml, mimetype="application/xml")
-
-
-@app.errorhandler(404)
-def not_found(_):
-    # Keep unknown URLs as real 404 responses rather than returning the homepage as a 404.
-    return render_template("not_found.html"), 404
 
 
 @app.route("/api/health")
