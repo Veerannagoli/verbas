@@ -166,14 +166,14 @@ section{padding:64px 0}
 .form-actions .btn{width:100%}
 
 /* FOOTER (navy) */
-footer{background:var(--hero2);color:#fff;padding:44px 0 20px}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:28px}
+footer{background:var(--hero2);color:#fff;padding:28px 0 14px}
+.footer-grid{display:grid;grid-template-columns:1.35fr 1fr 1.12fr 1fr .9fr .9fr;gap:22px}
 .footer-logo{font-size:19px;font-weight:700;letter-spacing:2.5px;margin-bottom:8px}
-footer p{color:var(--hmuted);font-size:13px}
-footer h4{font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:var(--sky);margin-bottom:10px}
-.footer-grid a{display:block;color:var(--hmuted);font-size:13px;margin-bottom:6px}
+footer p{color:var(--hmuted);font-size:12px;line-height:1.55;margin:8px 0 10px}
+footer h4{font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:var(--sky);margin:2px 0 8px}
+.footer-grid a{display:block;color:var(--hmuted);font-size:12px;line-height:1.45;margin-bottom:5px;overflow-wrap:anywhere}
 .footer-grid a:hover{color:#fff}
-.footer-bottom{display:flex;justify-content:space-between;gap:12px;margin-top:32px;padding-top:16px;border-top:1px solid var(--hline);font-size:12px;color:var(--hmuted)}
+.footer-bottom{display:flex;justify-content:space-between;gap:12px;margin-top:20px;padding-top:12px;border-top:1px solid var(--hline);font-size:12px;color:var(--hmuted)}
 
 /* SCROLL TO TOP */
 .to-top{position:fixed;right:20px;bottom:20px;z-index:40;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;font-size:18px;box-shadow:0 8px 22px rgba(47,123,255,.4);transition:transform .2s,background .2s}
@@ -186,7 +186,7 @@ footer h4{font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:var
   .nav-links{gap:22px}
   .split-layout,.contact-grid,.about-grid{grid-template-columns:1fr}
   .split-intro{position:static}
-  .footer-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
   .blog-grid{grid-template-columns:1fr 1fr}
   .post.featured{grid-column:1/-1}
 }
@@ -212,7 +212,8 @@ footer h4{font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:var
   .register-wrap,.service-grid,.card-grid,.about-points,.form-grid,.blog-grid,.footer-grid,.form-actions{grid-template-columns:1fr}
   .about-dark{padding:32px}
   .form{padding:22px}
-  .footer-bottom{flex-direction:column}
+  .footer-bottom{flex-direction:column;gap:6px;margin-top:18px}
+  footer{padding:24px 0 14px}
   .post.featured h3{font-size:19px}
   .to-top{right:14px;bottom:14px;width:40px;height:40px}
 }
