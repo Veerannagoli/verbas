@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">01 · Software & Technology</div>
+        <h2 class="title">Digital products<br>built around business.</h2>
+      </div>
+      <p class="desc">From a high-quality company website to a complete digital platform, we build technology around real requirements, users and long-term business goals.</p>
+    </div>
+    <div class="service-grid">
+      <article class="service-card"><span class="card-number">01</span><div class="card-icon"><i class="fa-solid fa-code"></i></div><h3>Web Development</h3><p>Fast, responsive and professional websites built for modern businesses and designed around performance, usability and business goals.</p><ul class="tags"><li>Business Websites</li><li>Responsive</li><li>Performance</li></ul></article>
+      <article class="service-card"><span class="card-number">02</span><div class="card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div><h3>App Development</h3><p>Mobile experiences focused on clear user journeys, reliable application behavior and maintainable product architecture.</p><ul class="tags"><li>Android</li><li>iOS</li><li>Cross-platform</li></ul></article>
+      <article class="service-card"><span class="card-number">03</span><div class="card-icon"><i class="fa-solid fa-gears"></i></div><h3>Software Development</h3><p>Purpose-built software designed around your processes, customers, workflows and long-term growth.</p><ul class="tags"><li>Business Systems</li><li>Automation</li><li>Custom Logic</li></ul></article>
+      <article class="service-card"><span class="card-number">04</span><div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div><h3>e-Commerce Development</h3><p>Modern online stores designed to present products clearly and create a smooth digital buying experience.</p><ul class="tags"><li>Online Stores</li><li>Product UI</li><li>Checkout</li></ul></article>
+      <article class="service-card"><span class="card-number">05</span><div class="card-icon"><i class="fa-solid fa-chart-line"></i></div><h3>Application Services</h3><p>Business applications, dashboards, integrations and digital tools that simplify day-to-day operations.</p><ul class="tags"><li>Dashboards</li><li>APIs</li><li>Integrations</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL MARKETING -->
+<section class="split-section" id="growth">
+  <div class="container split-layout">
+    <div class="split-intro">
+      <div class="section-tag">02 · Digital Marketing</div>
+      <h2 class="title">Build your presence.<br>Reach the right audience.</h2>
+      <p class="desc">Digital marketing helps businesses strengthen visibility, build their brand and reach potential customers through measurable digital channels.</p>
+      <a href="{{ url_for('contact_page') }}" class="btn btn-primary">Start a Marketing Project →</a>
+    </div>
+    <div class="card-grid">
+      <article class="info-card"><small>01 / Social</small><h3>Social Media Handling</h3><p>Content, campaigns and social presence designed to strengthen your brand and connect with customers.</p></article>
+      <article class="info-card"><small>02 / Meta</small><h3>Meta Ads</h3><p>Audience-focused advertising across Facebook and Instagram built around reach, engagement and acquisition.</p></article>
+      <article class="info-card"><small>03 / Google</small><h3>Google Ads</h3><p>Reach people actively searching for relevant products and services through focused advertising campaigns.</p></article>
+      <article class="info-card"><small>04 / Search</small><h3>SEO</h3><p>Technical and content-focused search optimization designed to improve sustainable online visibility.</p></article>
+      <article class="info-card"><small>05 / Email</small><h3>E-mail Marketing</h3><p>Relevant email communication that supports lead nurturing, customer engagement and repeat business.</p></article>
+      <article class="info-card"><small>06 / Content</small><h3>Content Marketing</h3><p>Useful, consistent content that communicates value, builds authority and supports long-term growth.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- AI BUSINESS AUTOMATIONS -->
+<section class="split-section alt" id="ai-automations">
+  <div class="container split-layout">
+    <div class="split-intro">
+      <div class="section-tag">03 · AI Business Automations</div>
+      <h2 class="title">Smarter workflows.<br>Less repetitive work.</h2>
+      <p class="desc">AI business automations connect conversations, business systems and everyday workflows so teams can reduce repetitive tasks, respond faster and keep important work moving.</p>
+      <a href="{{ url_for('contact_page') }}" class="btn btn-primary">Discuss an AI Automation →</a>
+    </div>
+    <div class="card-grid">
+      <article class="info-card"><small>01 / Voice</small><h3>AI Tally Caller</h3><p>AI-assisted calling workflows designed to support customer communication, follow-ups and business operations.</p></article>
+      <article class="info-card"><small>02 / Communication</small><h3>AI Voice & Communication</h3><p>Conversational AI experiences that help businesses handle routine communication consistently.</p></article>
+      <article class="info-card"><small>03 / Workflow</small><h3>Workflow Automation</h3><p>Automate repetitive business steps, handoffs and routine actions around the way your team already works.</p></article>
+      <article class="info-card"><small>04 / Integration</small><h3>Custom AI Integrations</h3><p>Connect AI capabilities with existing software, APIs and business systems to create practical automation.</p></article>
+    </div>
+  </div>
+</section>
+{% endblock %}

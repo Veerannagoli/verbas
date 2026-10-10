@@ -137,9 +137,31 @@ SEO_PAGES = {
  "blog": {"title":"Blog | Verbas — Software, Marketing & AI Automation","description":"Insights from Verbas on software development, digital marketing, SEO and AI business automation.","heading":"Ideas on software, growth and automation","intro":"Practical topics to help businesses make informed decisions about digital products, marketing and automation.","sections":[("Custom software or off-the-shelf?","Compare business processes, team needs, budget and long-term plans before deciding whether to build custom software."),("SEO foundations for local businesses","Useful pages, clear service information, crawlable links and consistent business details help search engines understand a website."),("Where AI automation fits","Start with repetitive, measurable workflows and evaluate reliability before scaling automation.")]}
 }
 
+PAGE_META = {
+    "home": ("Verbas | Software, Digital Marketing & AI Business Automations", "Verbas Private Limited helps businesses with website and app development, custom software, digital marketing, SEO and AI business automation.", "https://verbas.in/"),
+    "services": ("What We Do | Software, Marketing & AI Automation | Verbas", "Explore Verbas software development, digital marketing and AI business automation services.", "https://verbas.in/services"),
+    "approach": ("Our Approach | Verbas Private Limited", "Learn how Verbas understands business needs, designs with purpose, builds maintainable solutions and improves continuously.", "https://verbas.in/approach"),
+    "about": ("About Verbas Private Limited", "Learn about Verbas Private Limited, a software development and digital growth company.", "https://verbas.in/about"),
+    "blog": ("Blog | Verbas — Software, Marketing & AI Automation", "Ideas and practical guidance from Verbas on software development, digital marketing and AI business automation.", "https://verbas.in/blog"),
+    "contact": ("Contact & Project Enquiry | Verbas", "Contact Verbas Private Limited to discuss website development, software, digital marketing or AI automation projects.", "https://verbas.in/contact"),
+}
+
+def render_main_page(template, current_page):
+    title, description, canonical = PAGE_META[current_page]
+    return render_template(template, current_page=current_page, page_title=title,
+                           page_description=description, page_canonical=canonical)
+
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_main_page("index.html", "home")
+
+@app.route("/services")
+def services():
+    return render_main_page("services.html", "services")
+
+@app.route("/approach")
+def approach():
+    return render_main_page("approach.html", "approach")
 
 def seo_page(slug):
     page = dict(SEO_PAGES[slug])
@@ -148,11 +170,7 @@ def seo_page(slug):
 
 @app.route("/about")
 def about():
-    return seo_page("about")
-
-@app.route("/services")
-def services():
-    return seo_page("services")
+    return render_main_page("about.html", "about")
 
 @app.route("/tanuku")
 def tanuku():
@@ -168,11 +186,15 @@ def privacy():
 
 @app.route("/blog")
 def blog():
-    return seo_page("blog")
+    return render_main_page("blog.html", "blog")
+
+@app.route("/contact")
+def contact_page():
+    return render_main_page("contact.html", "contact")
 
 @app.route("/sitemap.xml")
 def sitemap():
-    paths = ["", "/about", "/services", "/tanuku", "/careers", "/privacy", "/blog"]
+    paths = ["", "/services", "/approach", "/about", "/blog", "/contact", "/tanuku", "/careers", "/privacy"]
     urls = "".join(f"<url><loc>{SITE_URL}{p}</loc></url>" for p in paths)
     response = make_response('<?xml version="1.0" encoding="UTF-8"?>' + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + urls + '</urlset>')
     response.headers["Content-Type"] = "application/xml; charset=utf-8"

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag"> · Blog</div>
+        <h2 class="title">Ideas on building,<br>marketing and automating.</h2>
+      </div>
+      <p class="desc">Practical notes from our work on software, digital growth and AI automation for growing businesses.</p>
+    </div>
+    <div class="blog-grid">
+      <article class="post featured">
+        <div class="post-meta"><span class="post-cat">AI Automation</span><span>8 Oct 2026 · 6 min read</span></div>
+        <h3><a href="{{ url_for('blog') }}">Where AI calling fits in a small business workflow</a></h3>
+        <p>Follow-ups, reminders and payment nudges are repetitive by nature. Here is how to decide which calls an AI caller should handle and which still need a person.</p>
+        <a class="read-more" href="{{ url_for('blog') }}">Read article →</a>
+      </article>
+      <article class="post">
+        <div class="post-meta"><span class="post-cat">Software</span><span>1 Oct 2026 · 5 min read</span></div>
+        <h3><a href="{{ url_for('blog') }}">Custom software or off-the-shelf? A simple way to choose</a></h3>
+        <p>Five questions that show whether your process needs purpose-built software.</p>
+        <a class="read-more" href="{{ url_for('blog') }}">Read article →</a>
+      </article>
+      <article class="post">
+        <div class="post-meta"><span class="post-cat">Digital Marketing</span><span>24 Sep 2026 · 4 min read</span></div>
+        <h3><a href="{{ url_for('blog') }}">Meta Ads vs Google Ads: where to spend your first budget</a></h3>
+        <p>Intent versus discovery, and what each channel is best at for local businesses.</p>
+        <a class="read-more" href="{{ url_for('blog') }}">Read article →</a>
+      </article>
+    </div>
+    <div class="blog-more"><a href="{{ url_for('blog') }}" class="btn btn-outline">View all articles →</a></div>
+  </div>
+</section>
+{% endblock %}

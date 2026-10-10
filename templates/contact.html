@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- ENQUIRY -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-copy">
+      <div class="section-tag">07 · Start a Project</div>
+      <h2 class="title">Tell us what you're trying to build.</h2>
+      <p class="desc">Share the idea, problem or digital opportunity. You don't need a complete technical specification. We'll start by understanding what the business actually needs.</p>
+      <div class="contact-note"><strong>What happens next?</strong><br>We review the requirement → discuss the project → understand the scope → define the appropriate next step.</div>
+      <ul class="contact-list">
+        <li><i class="fa-solid fa-phone"></i><div><small>Phone</small><a href="tel:+919951144669">+91 99511 44669</a></div></li>
+        <li><i class="fa-solid fa-envelope"></i><div><small>Email</small><a href="mailto:verbas.pvt.ltd@gmail.com">verbas.pvt.ltd@gmail.com</a></div></li>
+        <li><i class="fa-solid fa-globe"></i><div><small>Website</small><a href="https://verbas.in">verbas.in</a></div></li>
+      </ul>
+    </div>
+
+    <div class="form">
+      <div class="form-title">Project Enquiry</div>
+      <div class="form-sub">Start with the problem. We can help identify the right direction.</div>
+      <div class="success" id="success" role="status" aria-live="polite"></div>
+      <form id="enquiryForm">
+        <div class="form-grid">
+          <div class="field"><label for="name">Your name *</label><input id="name" name="name" required placeholder="Your full name"></div>
+          <div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" required placeholder="you@company.com"></div>
+          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" placeholder="+91"></div>
+          <div class="field"><label for="company">Company</label><input id="company" name="company" placeholder="Company or organization"></div>
+          <div class="field">
+            <label for="need">What do you need? *</label>
+            <select id="need" name="need" required>
+              <option value="">Select a service</option>
+              <optgroup label="Software">
+                <option>Web Development</option><option>App Development</option><option>Software Development</option><option>e-Commerce Development</option><option>Application Services</option>
+              </optgroup>
+              <optgroup label="Digital Marketing">
+                <option>Social Media Handling</option><option>Meta Ads</option><option>Google Ads</option><option>SEO</option><option>E-mail Marketing</option><option>Content Marketing</option>
+              </optgroup>
+              <optgroup label="AI Business Automations">
+                <option>AI Tally Caller</option><option>AI Voice & Communication</option><option>Workflow Automation</option><option>Custom AI Integrations</option>
+              </optgroup>
+              <option>Not sure — need guidance</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="timeline">Preferred timeline</label>
+            <select id="timeline" name="timeline">
+              <option value="">Select timeline</option><option>As soon as possible</option><option>Within 1 month</option><option>1 – 3 months</option><option>3 – 6 months</option><option>Flexible</option>
+            </select>
+          </div>
+          <div class="field full"><label for="message">Tell us about your project *</label><textarea id="message" name="message" required minlength="20" placeholder="Tell us what you want to build, improve or grow..."></textarea></div>
+        </div>
+        <div class="form-bottom">
+          <small>Choose how you want to send your enquiry. Email is delivered through Verbas' secure server connection; WhatsApp opens a ready-to-send message.</small>
+          <div class="form-actions">
+            <button class="btn btn-primary" id="emailSubmitBtn" type="submit"><i class="fa-solid fa-envelope"></i> Send via Email</button>
+            <button class="btn btn-whatsapp" id="whatsappSubmitBtn" type="button"><i class="fa-brands fa-whatsapp"></i> Send via WhatsApp</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}
